@@ -5,6 +5,7 @@ namespace: frontend-prod
 
 resources:
 - ../../base
+- configmap.yaml
 
 patches:
 - patch: |-

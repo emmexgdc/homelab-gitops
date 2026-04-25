@@ -5,7 +5,7 @@ namespace: frontend-staging
 
 resources:
 - ../../base
-
+- configmap.yaml
 patches:
 - patch: |-
     - op: replace

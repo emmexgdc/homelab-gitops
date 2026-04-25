@@ -5,6 +5,7 @@ namespace: frontend-dev
 
 resources:
 - ../../base
+- configmap.yaml
 
 patches:
 - patch: |-
