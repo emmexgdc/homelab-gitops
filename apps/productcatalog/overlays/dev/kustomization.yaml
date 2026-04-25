@@ -5,6 +5,7 @@ namespace: productcatalog-dev
 
 resources:
 - ../../base
+- configmap.yaml
 
 patches:
 - patch: |-

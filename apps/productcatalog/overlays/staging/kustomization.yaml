@@ -5,6 +5,7 @@ namespace: productcatalog-staging
 
 resources:
 - ../../base
+- configmap.yaml
 
 patches:
 - patch: |-

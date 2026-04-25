@@ -18,9 +18,9 @@ spec:
         image: gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.1
         ports:
         - containerPort: 3550
-        env:
-        - name: PORT
-          value: "3550"
+        envFrom:
+        - configMapRef:
+            name: productcatalog-config
         resources:
           requests:
             cpu: 100m

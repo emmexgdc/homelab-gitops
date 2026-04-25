@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: productcatalog-config
+  namespace: productcatalog-prod
+data:
+  PORT: "3550"
+  DISABLE_STATS: "0"
+  DISABLE_TRACING: "0"
+  DISABLE_PROFILER: "1"

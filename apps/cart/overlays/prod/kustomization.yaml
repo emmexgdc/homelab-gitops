@@ -5,6 +5,7 @@ namespace: cart-prod
 
 resources:
 - ../../base
+- configmap.yaml
 
 patches:
 - patch: |-

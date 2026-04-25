@@ -5,6 +5,7 @@ namespace: cart-staging
 
 resources:
 - ../../base
+- configmap.yaml
 
 patches:
 - patch: |-
