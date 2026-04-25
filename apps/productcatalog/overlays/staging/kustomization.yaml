@@ -17,7 +17,8 @@ patches:
     name: productcatalog
 
 images:
-- name: gcr.io/google-samples/microservices-demo/productcatalogservice
+- name: productcatalog
+  newName: ghcr.io/emmexgdc/productcatalog
   newTag: v0.10.1
 
 labels:

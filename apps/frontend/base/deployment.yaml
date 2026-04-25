@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gcr.io/google-samples/microservices-demo/frontend:v0.10.1
+        image: frontend
         ports:
         - containerPort: 8080
         envFrom:

@@ -16,8 +16,9 @@ patches:
     name: frontend
 
 images:
-- name: gcr.io/google-samples/microservices-demo/frontend
-  newTag: v0.10.1
+- name: frontend
+  newName: ghcr.io/emmexgdc/frontend
+  newTag: e37e6ac
 
 labels:
 - pairs:
