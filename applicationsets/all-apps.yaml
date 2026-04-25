@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: homelab-apps
+  namespace: argocd
+spec:
+  generators:
+  - matrix:
+      generators:
+      - list:
+          elements:
+          - app: frontend
+          - app: productcatalog
+          - app: cart
+      - list:
+          elements:
+          - env: dev
+          - env: staging
+          - env: prod
+  template:
+    metadata:
+      name: '{{app}}-{{env}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/emmexgdc/homelab-gitops
+        targetRevision: HEAD
+        path: apps/{{app}}/overlays/{{env}}
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{app}}-{{env}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
