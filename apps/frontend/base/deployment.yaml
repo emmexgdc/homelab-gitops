@@ -25,6 +25,20 @@ spec:
           value: "productcatalog:3550"
         - name: CART_SERVICE_ADDR
           value: "cart:7070"
+        - name: CURRENCY_SERVICE_ADDR
+          value: "currencyservice:7000"
+        - name: SHIPPING_SERVICE_ADDR
+          value: "shippingservice:50051"
+        - name: CHECKOUT_SERVICE_ADDR
+          value: "checkoutservice:5050"
+        - name: AD_SERVICE_ADDR
+          value: "adservice:9555"
+        - name: RECOMMENDATION_SERVICE_ADDR
+          value: "recommendationservice:8080"
+        - name: SHOPPING_ASSISTANT_SERVICE_ADDR
+          value: "shoppingassistantservice:8080"
+        - name: ENABLE_PROFILER
+          value: "0"
         resources:
           requests:
             cpu: 100m
