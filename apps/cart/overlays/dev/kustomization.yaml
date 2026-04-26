@@ -18,9 +18,8 @@ patches:
 images:
 - name: cart
   newName: ghcr.io/emmexgdc/cart
-  newTag: v0.10.1
+  newTag: 39ae729
 
 labels:
 - pairs:
     environment: dev
-  includeSelectors: false
