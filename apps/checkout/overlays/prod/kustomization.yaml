@@ -19,9 +19,8 @@ patches:
 images:
 - name: checkout
   newName: ghcr.io/emmexgdc/checkout
-  newTag: latest
+  newTag: c3dd29e
 
 labels:
 - pairs:
     environment: prod
-  includeSelectors: false

@@ -19,9 +19,8 @@ patches:
 images:
 - name: recommendation
   newName: ghcr.io/emmexgdc/recommendation
-  newTag: latest
+  newTag: 97fa0fc
 
 labels:
 - pairs:
     environment: staging
-  includeSelectors: false
