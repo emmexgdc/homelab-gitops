@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recommendation
+  labels:
+    app: recommendation
+spec:
+  selector:
+    matchLabels:
+      app: recommendation
+  template:
+    metadata:
+      labels:
+        app: recommendation
+    spec:
+      containers:
+      - name: recommendation
+        image: recommendation
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: recommendation-config
+        resources:
+          requests:
+            cpu: 100m
+            memory: 220Mi
+          limits:
+            cpu: 200m
+            memory: 450Mi
+        readinessProbe:
+          grpc:
+            port: 8080
+          initialDelaySeconds: 10
+        livenessProbe:
+          grpc:
+            port: 8080
+          initialDelaySeconds: 10

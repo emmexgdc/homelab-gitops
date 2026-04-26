@@ -12,6 +12,8 @@ spec:
           - app: frontend
           - app: productcatalog
           - app: cart
+          - app: recommendation
+          - app: checkout
       - list:
           elements:
           - env: dev

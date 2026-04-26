@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: checkout
+  labels:
+    app: checkout
+spec:
+  selector:
+    matchLabels:
+      app: checkout
+  template:
+    metadata:
+      labels:
+        app: checkout
+    spec:
+      containers:
+      - name: checkout
+        image: checkout
+        ports:
+        - containerPort: 5050
+        envFrom:
+        - configMapRef:
+            name: checkout-config
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 200m
+            memory: 128Mi
+        readinessProbe:
+          grpc:
+            port: 5050
+          initialDelaySeconds: 10
+        livenessProbe:
+          grpc:
+            port: 5050
+          initialDelaySeconds: 10

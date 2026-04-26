@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: recommendation-config
+  namespace: recommendation-staging
+data:
+  PORT: "8080"
+  PRODUCT_CATALOG_SERVICE_ADDR: "productcatalog.productcatalog-staging.svc.cluster.local:3550"
+  DISABLE_STATS: "1"
+  DISABLE_TRACING: "1"
+  DISABLE_PROFILER: "1"

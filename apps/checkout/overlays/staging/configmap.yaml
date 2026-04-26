@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: checkout-config
+  namespace: checkout-staging
+data:
+  PORT: "5050"
+  PRODUCT_CATALOG_SERVICE_ADDR: "productcatalog.productcatalog-staging.svc.cluster.local:3550"
+  CART_SERVICE_ADDR: "cart.cart-staging.svc.cluster.local:7070"
+  CURRENCY_SERVICE_ADDR: "currencyservice:7000"
+  SHIPPING_SERVICE_ADDR: "shippingservice:50051"
+  PAYMENT_SERVICE_ADDR: "paymentservice:50051"
+  EMAIL_SERVICE_ADDR: "emailservice:5000"
+  DISABLE_STATS: "1"
+  DISABLE_TRACING: "1"
