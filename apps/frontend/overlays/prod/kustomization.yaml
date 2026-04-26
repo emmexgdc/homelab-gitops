@@ -19,9 +19,8 @@ patches:
 images:
 - name: frontend
   newName: ghcr.io/emmexgdc/frontend
-  newTag: e37e6ac
+  newTag: a0ae482
 
 labels:
 - pairs:
     environment: prod
-  includeSelectors: false
