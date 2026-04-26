@@ -6,6 +6,7 @@ namespace: frontend-prod
 resources:
 - ../../base
 - configmap.yaml
+- ingress.yaml
 
 patches:
 - patch: |-
