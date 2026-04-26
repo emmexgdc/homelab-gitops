@@ -18,7 +18,7 @@ patches:
 images:
 - name: cart
   newName: ghcr.io/emmexgdc/cart
-  newTag: 39ae729
+  newTag: b5dac9c
 
 labels:
 - pairs:
