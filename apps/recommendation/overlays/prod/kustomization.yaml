@@ -19,9 +19,8 @@ patches:
 images:
 - name: recommendation
   newName: ghcr.io/emmexgdc/recommendation
-  newTag: latest
+  newTag: b419526
 
 labels:
 - pairs:
     environment: prod
-  includeSelectors: false
