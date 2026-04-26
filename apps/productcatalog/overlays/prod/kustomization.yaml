@@ -19,9 +19,8 @@ patches:
 images:
 - name: productcatalog
   newName: ghcr.io/emmexgdc/productcatalog
-  newTag: v0.10.1
+  newTag: 5a59e4b
 
 labels:
 - pairs:
     environment: prod
-  includeSelectors: false
