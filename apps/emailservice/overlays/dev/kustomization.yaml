@@ -19,9 +19,8 @@ patches:
 images:
 - name: emailservice
   newName: ghcr.io/emmexgdc/emailservice
-  newTag: latest
+  newTag: eebc8f9
 
 labels:
 - pairs:
     environment: dev
-  includeSelectors: false
