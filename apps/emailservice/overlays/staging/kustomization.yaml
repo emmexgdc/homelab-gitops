@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: emailservice-staging
+
+resources:
+- ../../base
+- configmap.yaml
+
+patches:
+- patch: |-
+    - op: replace
+      path: /spec/replicas
+      value: 2
+  target:
+    kind: Deployment
+    name: emailservice
+
+images:
+- name: emailservice
+  newName: ghcr.io/emmexgdc/emailservice
+  newTag: latest
+
+labels:
+- pairs:
+    environment: staging
+  includeSelectors: false

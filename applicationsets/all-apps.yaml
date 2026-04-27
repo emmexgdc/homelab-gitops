@@ -14,6 +14,11 @@ spec:
           - app: cart
           - app: recommendation
           - app: checkout
+          - app: currencyservice
+          - app: shippingservice
+          - app: paymentservice
+          - app: emailservice
+          - app: adservice
       - list:
           elements:
           - env: dev

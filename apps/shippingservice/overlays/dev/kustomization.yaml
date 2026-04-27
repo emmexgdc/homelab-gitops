@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: shippingservice-dev
+
+resources:
+- ../../base
+- configmap.yaml
+
+patches:
+- patch: |-
+    - op: replace
+      path: /spec/replicas
+      value: 1
+  target:
+    kind: Deployment
+    name: shippingservice
+
+images:
+- name: shippingservice
+  newName: ghcr.io/emmexgdc/shippingservice
+  newTag: latest
+
+labels:
+- pairs:
+    environment: dev
+  includeSelectors: false

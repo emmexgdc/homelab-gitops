@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: emailservice-config
+  namespace: emailservice-prod
+data:
+  PORT: "8080"
+  DISABLE_TRACING: "0"
+  DISABLE_STATS: "0"
+  DISABLE_PROFILER: "1"
+  ENABLE_PROFILER: "0"

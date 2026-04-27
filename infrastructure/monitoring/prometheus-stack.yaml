@@ -12,7 +12,7 @@ spec:
     helm:
       values: |
         grafana:
-          adminPassword: admin123 # Change this to a secure password in production
+          adminPassword: admin123   # Change this to a secure password in production
           ingress:
             enabled: true
             ingressClassName: nginx
