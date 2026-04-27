@@ -19,9 +19,8 @@ patches:
 images:
 - name: paymentservice
   newName: ghcr.io/emmexgdc/paymentservice
-  newTag: latest
+  newTag: 460be50
 
 labels:
 - pairs:
     environment: dev
-  includeSelectors: false
