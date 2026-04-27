@@ -19,9 +19,8 @@ patches:
 images:
 - name: currencyservice
   newName: ghcr.io/emmexgdc/currencyservice
-  newTag: latest
+  newTag: a470ef8
 
 labels:
 - pairs:
     environment: dev
-  includeSelectors: false
