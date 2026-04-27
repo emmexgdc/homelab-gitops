@@ -19,9 +19,8 @@ patches:
 images:
 - name: shippingservice
   newName: ghcr.io/emmexgdc/shippingservice
-  newTag: latest
+  newTag: f7bb93e
 
 labels:
 - pairs:
     environment: dev
-  includeSelectors: false
