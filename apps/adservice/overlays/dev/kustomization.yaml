@@ -19,9 +19,8 @@ patches:
 images:
 - name: adservice
   newName: ghcr.io/emmexgdc/adservice
-  newTag: latest
+  newTag: 8922f67
 
 labels:
 - pairs:
     environment: dev
-  includeSelectors: false
