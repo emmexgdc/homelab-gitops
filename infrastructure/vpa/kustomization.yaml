@@ -5,3 +5,5 @@ resources:
   - crds.yaml
   - rbac.yaml
   - recommender-deployment.yaml
+  - service.yaml
+  - servicemonitor.yaml
