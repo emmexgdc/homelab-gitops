@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - ingress.yaml
   - application.yaml
-  - namespace.yaml
+  - namespace-labels.yaml
