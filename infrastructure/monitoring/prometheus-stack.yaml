@@ -11,6 +11,8 @@ spec:
     targetRevision: "70.*"
     helm:
       values: |
+        crds:
+          enabled: false
         grafana:
           ingress:
             enabled: true
@@ -58,6 +60,6 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
-    - ServerSideApply=true
-    - DisableClientSideApplyMigration=true
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - DisableClientSideApplyMigration=true
