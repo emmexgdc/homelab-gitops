@@ -3,7 +3,6 @@ kind: Application
 metadata:
   name: vault-production
   namespace: argocd
-
 spec:
   project: default
 
@@ -12,7 +11,6 @@ spec:
     chart: vault
     targetRevision: 0.30.0
     helm:
-      valueFiles: []
       values: |
         server:
           standalone:
@@ -35,6 +33,14 @@ spec:
           ingress:
             enabled: false
 
+          resources:
+            requests:
+              memory: 256Mi
+              cpu: 100m
+            limits:
+              memory: 512Mi
+              cpu: 500m
+
         ui:
           enabled: true
 
@@ -46,6 +52,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
-
     syncOptions:
       - CreateNamespace=true
