@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: __APP_NAME__
+  labels:
+    app: __APP_NAME__
+spec:
+  selector:
+    matchLabels:
+      app: __APP_NAME__
+  template:
+    metadata:
+      labels:
+        app: __APP_NAME__
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: __APP_NAME__
+        image: __APP_NAME__
+        ports:
+        - name: http
+          containerPort: __PORT__
+        envFrom:
+        - configMapRef:
+            name: __APP_NAME__-config
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 300m
+            memory: 256Mi
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
+          initialDelaySeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+          initialDelaySeconds: 20
