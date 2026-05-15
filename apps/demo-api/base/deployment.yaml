@@ -22,7 +22,7 @@ spec:
         image: demo-api
         ports:
         - name: http
-          containerPort: 80
+          containerPort: 8080
         envFrom:
         - configMapRef:
             name: demo-api-config
