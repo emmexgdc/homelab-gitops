@@ -20,7 +20,6 @@ spec:
             passwordKey: admin-password
           persistence:
             enabled: true
-            type: pvc
             storageClassName: local-path
             accessModes:
               - ReadWriteOnce
