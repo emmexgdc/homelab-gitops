@@ -18,7 +18,7 @@ patches:
 
 images:
 - name: demo-api
-  newName: nginx
+  newName: nginxinc/nginx-unprivileged
   newTag: latest
 
 labels:
