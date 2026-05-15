@@ -14,10 +14,14 @@ spec:
       values: |
         server:
           standalone:
-            enabled: false
+            enabled: true
 
           ha:
-            enabled: false
+            enabled: true
+            replicas: 1
+            raft:
+              enabled: true
+              setNodeId: true
 
           dataStorage:
             enabled: true
