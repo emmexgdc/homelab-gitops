@@ -1,0 +1,51 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault-production
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://helm.releases.hashicorp.com
+    chart: vault
+    targetRevision: 0.30.0
+    helm:
+      valueFiles: []
+      values: |
+        server:
+          standalone:
+            enabled: false
+
+          ha:
+            enabled: false
+
+          dataStorage:
+            enabled: true
+            size: 5Gi
+
+          raft:
+            enabled: true
+            setNodeId: true
+
+          service:
+            type: ClusterIP
+
+          ingress:
+            enabled: false
+
+        ui:
+          enabled: true
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: vault
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
