@@ -5,7 +5,18 @@ metadata:
   description: Homelab GitOps repository managed with ArgoCD
   annotations:
     github.com/project-slug: emmexgdc/homelab-gitops
+
 spec:
   type: infrastructure
   lifecycle: experimental
-  owner: platform-team
+  owner: group:default/platform-team
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: platform-team
+
+spec:
+  targets:
+    - ./groups.yaml
