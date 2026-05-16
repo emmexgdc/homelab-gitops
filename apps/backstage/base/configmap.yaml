@@ -28,9 +28,9 @@ data:
     catalog:
       locations:
         - type: url
-          target: https://github.com/emmexgdc/homelab-platform/blob/main/backstage/templates/react-frontend/template.yaml
+          target: https://github.com/emmexgdc/homelab-platform/blob/main/catalog-info.yaml
           rules:
-            - allow: [Template]
+            - allow: [Location, Template]
 
     kubernetes:
       serviceLocatorMethod:
