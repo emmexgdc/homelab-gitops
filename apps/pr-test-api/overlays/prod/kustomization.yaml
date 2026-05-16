@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: pr-test-api-prod
+
+resources:
+- ../../base
+- configmap.yaml
+
+patches:
+- patch: |-
+    - op: replace
+      path: /spec/replicas
+      value: 1
+  target:
+    kind: Deployment
+    name: pr-test-api
+
+images:
+- name: pr-test-api
+  newName: emmexgdc/pr-test-api
+  newTag: latest
+
+labels:
+- pairs:
+    environment: prod

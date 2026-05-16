@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pr-test-api-config
+  namespace: pr-test-api-dev
+data:
+  PORT: "8080"
+  ENVIRONMENT: "dev"

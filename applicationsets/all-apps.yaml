@@ -23,6 +23,7 @@ spec:
                 - app: orders-api
                 - app: python-plat
                 - app: payments-platform-api
+                - app: pr-test-api
           - list:
               elements:
                 - env: dev
