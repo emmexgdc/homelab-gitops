@@ -1,4 +1,4 @@
-.PHONY: new-app new-starter new-repo platform-new-service
+.PHONY: new-app new-starter new-repo platform-new-service list-templates
 
 APPSET_FILE := applicationsets/all-apps.yaml
 REGISTRY ?= ghcr.io/emmexgdc
@@ -73,3 +73,7 @@ new-repo:
 	gh repo create emmexgdc/$(APP_NAME) --private --source=. --remote=origin --push
 
 	@echo "GitHub repo created and pushed: emmexgdc/$(APP_NAME)"
+
+list-templates:
+	@echo "Available starter templates:"
+	@find templates/starter -maxdepth 1 -mindepth 1 -type d -exec basename {} \; | sort
