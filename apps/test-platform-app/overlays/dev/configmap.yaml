@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: test-platform-app-config
-  namespace: test-platform-app-dev
-data:
-  PORT: "8080"
-  ENVIRONMENT: "dev"
