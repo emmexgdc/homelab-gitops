@@ -18,7 +18,7 @@ patches:
 
 images:
 - name: python-plat
-  newName: ghcr.io/emmexgdc/python-plat
+  newName: emmexgdc/platform-app
   newTag: latest
 
 labels:
