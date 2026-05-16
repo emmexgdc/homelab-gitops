@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: __APP_NAME__-staging
+namespace: ${{ values.appName }}-staging
 
 resources:
 - ../../base
@@ -14,11 +14,11 @@ patches:
       value: 1
   target:
     kind: Deployment
-    name: __APP_NAME__
+    name: ${{ values.appName }}
 
 images:
-- name: __APP_NAME__
-  newName: __IMAGE__
+- name: ${{ values.appName }}
+  newName: ${{ values.image }}
   newTag: latest
 
 labels:

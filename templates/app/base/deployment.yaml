@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: __APP_NAME__
+  name: ${{ values.appName }}
   labels:
-    app: __APP_NAME__
+    app: ${{ values.appName }}
 spec:
   selector:
     matchLabels:
-      app: __APP_NAME__
+      app: ${{ values.appName }}
   template:
     metadata:
       labels:
-        app: __APP_NAME__
+        app: ${{ values.appName }}
     spec:
       securityContext:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
       containers:
-      - name: __APP_NAME__
-        image: __APP_NAME__
+      - name: ${{ values.appName }}
+        image: ${{ values.appName }}
         ports:
         - name: http
-          containerPort: __PORT__
+          containerPort: ${{ values.port }}
         envFrom:
         - configMapRef:
-            name: __APP_NAME__-config
+            name: ${{ values.appName }}-config
         resources:
           requests:
             cpu: 100m

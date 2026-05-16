@@ -1,8 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: __APP_NAME__
-  description: __APP_NAME__ service
+  name: ${{ values.appName }}
+  description: ${{ values.appName }} service
   tags:
     - kubernetes
     - gitops

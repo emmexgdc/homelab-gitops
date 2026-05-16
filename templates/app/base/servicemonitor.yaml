@@ -1,13 +1,13 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: __APP_NAME__
+  name: ${{ values.appName }}
   labels:
-    app: __APP_NAME__
+    app: ${{ values.appName }}
 spec:
   selector:
     matchLabels:
-      app: __APP_NAME__
+      app: ${{ values.appName }}
   endpoints:
   - port: http
     path: /metrics
