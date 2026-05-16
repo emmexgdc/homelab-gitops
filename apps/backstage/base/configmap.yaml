@@ -47,6 +47,11 @@ data:
           rules:
             - allow: [Location, Template]
 
+        - type: url
+          target: https://github.com/emmexgdc/homelab-platform/blob/main/users.yaml
+          rules:
+            - allow: [User, Group]
+
     kubernetes:
       serviceLocatorMethod:
         type: multiTenant
