@@ -1,3 +1,4 @@
+.PHONY: new-app
 APPSET_FILE := applicationsets/all-apps.yaml
 REGISTRY ?= ghcr.io/emmexgdc
 
@@ -21,8 +22,19 @@ new-app:
 		test -n "$(HOST)" || (echo "HOST is required when INGRESS=true"; exit 1); \
 		find apps/$(APP_NAME) -name ingress.yaml -exec sed -i '' \
 			-e 's|__HOST__|$(HOST)|g' {} \;; \
-		find apps/$(APP_NAME)/overlays -name kustomization.yaml -exec sh -c \
-			'echo "- ingress.yaml" >> $$1' _ {} \;; \
+		find apps/$(APP_NAME)/overlays -name kustomization.yaml -exec yq -i '.resources += ["ingress.yaml"]' {} \;; \
+	fi
+
+	@if [ "$(MONITORING)" != "true" ]; then \
+		rm -f apps/$(APP_NAME)/base/servicemonitor.yaml; \
+	else \
+		echo "- servicemonitor.yaml" >> apps/$(APP_NAME)/base/kustomization.yaml; \
+	fi
+
+	@if [ "$(SECRETS)" != "true" ]; then \
+		rm -f apps/$(APP_NAME)/base/externalsecret.yaml; \
+	else \
+		echo "- externalsecret.yaml" >> apps/$(APP_NAME)/base/kustomization.yaml; \
 	fi
 
 	yq -i '.spec.generators[0].matrix.generators[0].list.elements += [{"app": "$(APP_NAME)"}] | .spec.generators[0].matrix.generators[0].list.elements |= unique_by(.app)' $(APPSET_FILE)

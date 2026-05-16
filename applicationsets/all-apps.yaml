@@ -22,6 +22,10 @@ spec:
                 - app: demo-api
                 - app: orders-api
                 - app: python-plat
+                - app: test-api
+                - app: test-api2
+                - app: test-api3
+                - app: test-platform-app
           - list:
               elements:
                 - env: dev

@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: test-platform-app
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - test-platform-app.homelab.emmexgdc.uk
+    secretName: test-platform-app-tls
+  rules:
+  - host: test-platform-app.homelab.emmexgdc.uk
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: test-platform-app
+            port:
+              number: 8080
