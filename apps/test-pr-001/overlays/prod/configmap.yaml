@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test-pr-001-config
+  namespace: test-pr-001-prod
+data:
+  PORT: "8080"
+  ENVIRONMENT: "prod"
