@@ -11,7 +11,9 @@ data:
         - app/sign-in-page:
             config:
               providers:
-                - github
+                - id: github
+                  title: GitHub
+                  message: Sign in using your GitHub account
 
     backend:
       baseUrl: https://backstage.homelab.emmexgdc.uk
