@@ -8,10 +8,12 @@ spec:
   selector:
     matchLabels:
       app: backstage
+      backstage.io/kubernetes-id: backstage
   template:
     metadata:
       labels:
         app: backstage
+        backstage.io/kubernetes-id: backstage
     spec:
       containers:
         - name: backstage
