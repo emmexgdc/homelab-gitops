@@ -22,6 +22,8 @@ spec:
           envFrom:
             - secretRef:
                 name: backstage-postgres
+            - secretRef:
+                name: backstage-github-auth
           volumeMounts:
             - name: backstage-config
               mountPath: /app/app-config.production.yaml

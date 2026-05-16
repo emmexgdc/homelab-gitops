@@ -27,9 +27,12 @@ data:
           database: ${POSTGRES_DB}
 
     auth:
+      environment: production
       providers:
-        guest: {}
-
+        github:
+          production:
+            clientId: ${AUTH_GITHUB_CLIENT_ID}
+            clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
     catalog:
       locations:
         - type: url
