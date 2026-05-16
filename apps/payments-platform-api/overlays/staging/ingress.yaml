@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: payments-platform-api
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - payments-platform-api.homelab.emmexgdc.uk
+    secretName: payments-platform-api-tls
+  rules:
+  - host: payments-platform-api.homelab.emmexgdc.uk
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: payments-platform-api
+            port:
+              number: 8080

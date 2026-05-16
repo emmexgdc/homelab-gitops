@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: payments-platform-api-config
+  namespace: payments-platform-api-prod
+data:
+  PORT: "8080"
+  ENVIRONMENT: "prod"

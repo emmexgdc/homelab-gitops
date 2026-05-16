@@ -1,4 +1,5 @@
-.PHONY: new-app
+.PHONY: new-app new-starter platform-new-service
+
 APPSET_FILE := applicationsets/all-apps.yaml
 REGISTRY ?= ghcr.io/emmexgdc
 
@@ -42,3 +43,21 @@ new-app:
 	@echo "App created at apps/$(APP_NAME)"
 	@echo "Image set to $(REGISTRY)/$(APP_NAME):latest"
 	@echo "ApplicationSet updated with $(APP_NAME)"
+
+new-starter:
+	@test -n "$(APP_NAME)" || (echo "APP_NAME is required"; exit 1)
+	@test -n "$(TEMPLATE)" || (echo "TEMPLATE is required"; exit 1)
+	@test -d "templates/starter/$(TEMPLATE)" || (echo "templates/starter/$(TEMPLATE) does not exist"; exit 1)
+	@test ! -d "../$(APP_NAME)" || (echo "../$(APP_NAME) already exists"; exit 1)
+
+	cp -R templates/starter/$(TEMPLATE) ../$(APP_NAME)
+
+	find ../$(APP_NAME) -type f -exec sed -i '' \
+		-e 's|__APP_NAME__|$(APP_NAME)|g' {} \;
+
+	@echo "Starter app created at ../$(APP_NAME)"
+
+platform-new-service: new-starter new-app
+	@echo "Platform service created"
+	@echo "Starter app: ../$(APP_NAME)"
+	@echo "GitOps app: apps/$(APP_NAME)"
