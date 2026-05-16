@@ -19,7 +19,7 @@ patches:
 images:
 - name: python-plat
   newName: emmexgdc/platform-app
-  newTag: latest
+  newTag: 5dd71d
 
 labels:
 - pairs:
