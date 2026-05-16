@@ -5,6 +5,7 @@ metadata:
   description: Homelab GitOps repository managed with ArgoCD
   annotations:
     github.com/project-slug: emmexgdc/homelab-gitops
+    backstage.io/kubernetes-id: backstage
 spec:
   type: infrastructure
   lifecycle: experimental
