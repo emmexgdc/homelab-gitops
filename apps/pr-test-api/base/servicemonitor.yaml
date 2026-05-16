@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: pr-test-api
+  labels:
+    app: pr-test-api
+spec:
+  selector:
+    matchLabels:
+      app: pr-test-api
+  endpoints:
+  - port: http
+    path: /metrics
+    interval: 30s
