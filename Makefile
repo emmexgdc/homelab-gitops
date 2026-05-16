@@ -1,4 +1,4 @@
-.PHONY: new-app new-starter platform-new-service
+.PHONY: new-app new-starter new-repo platform-new-service
 
 APPSET_FILE := applicationsets/all-apps.yaml
 REGISTRY ?= ghcr.io/emmexgdc
@@ -61,3 +61,15 @@ platform-new-service: new-starter new-app
 	@echo "Platform service created"
 	@echo "Starter app: ../$(APP_NAME)"
 	@echo "GitOps app: apps/$(APP_NAME)"
+
+new-repo:
+	@test -n "$(APP_NAME)" || (echo "APP_NAME is required"; exit 1)
+	@test -d "../$(APP_NAME)" || (echo "../$(APP_NAME) does not exist"; exit 1)
+
+	cd ../$(APP_NAME) && \
+	git init && \
+	git add . && \
+	git commit -m "initial commit" && \
+	gh repo create emmexgdc/$(APP_NAME) --private --source=. --remote=origin --push
+
+	@echo "GitHub repo created and pushed: emmexgdc/$(APP_NAME)"
