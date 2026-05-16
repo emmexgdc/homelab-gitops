@@ -18,8 +18,13 @@ data:
         dangerouslyDisableDefaultAuthPolicy: true
 
       database:
-        client: better-sqlite3
-        connection: ':memory:'
+        client: pg
+        connection:
+          host: backstage-postgres
+          port: 5432
+          user: ${POSTGRES_USER}
+          password: ${POSTGRES_PASSWORD}
+          database: ${POSTGRES_DB}
 
     auth:
       providers:

@@ -19,6 +19,9 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 7007
+          envFrom:
+            - secretRef:
+                name: backstage-postgres
           volumeMounts:
             - name: backstage-config
               mountPath: /app/app-config.production.yaml
