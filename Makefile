@@ -1,4 +1,4 @@
-.PHONY: new-app new-starter new-repo platform-new-service list-templates
+.PHONY: new-app new-starter new-repo platform-new-service list-templates gitops-pr
 
 APPSET_FILE := applicationsets/all-apps.yaml
 REGISTRY ?= ghcr.io/emmexgdc
@@ -77,3 +77,15 @@ new-repo:
 list-templates:
 	@echo "Available starter templates:"
 	@find templates/starter -maxdepth 1 -mindepth 1 -type d -exec basename {} \; | sort
+
+gitops-pr:
+	@test -n "$(APP_NAME)" || (echo "APP_NAME is required"; exit 1)
+	@test -d "apps/$(APP_NAME)" || (echo "apps/$(APP_NAME) does not exist"; exit 1)
+
+	git checkout -b add-$(APP_NAME)
+	git add apps/$(APP_NAME) applicationsets/all-apps.yaml
+	git commit -m "add $(APP_NAME) gitops manifests"
+	git push -u origin add-$(APP_NAME)
+	gh pr create \
+		--title "Add $(APP_NAME) GitOps manifests" \
+		--body "Adds GitOps deployment manifests for $(APP_NAME)."
