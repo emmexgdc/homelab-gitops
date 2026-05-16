@@ -26,7 +26,11 @@ data:
         guest: {}
 
     catalog:
-      locations: []
+      locations:
+        - type: url
+          target: https://github.com/emmexgdc/homelab-platform/blob/main/backstage/templates/react-frontend/template.yaml
+          rules:
+            - allow: [Template]
 
     kubernetes:
       serviceLocatorMethod:
