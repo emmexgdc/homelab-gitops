@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-plat
+  labels:
+    app: python-plat
+spec:
+  selector:
+    app: python-plat
+  ports:
+  - name: http
+    port: 5000
+    targetPort: 5000

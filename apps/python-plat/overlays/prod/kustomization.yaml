@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: python-plat-prod
+
+resources:
+- ../../base
+- configmap.yaml
+
+patches:
+- patch: |-
+    - op: replace
+      path: /spec/replicas
+      value: 1
+  target:
+    kind: Deployment
+    name: python-plat
+
+images:
+- name: python-plat
+  newName: ghcr.io/emmexgdc/python-plat
+  newTag: latest
+
+labels:
+- pairs:
+    environment: prod

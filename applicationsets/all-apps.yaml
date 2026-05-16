@@ -20,6 +20,9 @@ spec:
                 - app: emailservice
                 - app: adservice
                 - app: demo-api
+                - app: orders-api
+                - app: python-plat
+                - app: python-plat
           - list:
               elements:
                 - env: dev
