@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: test-react
+  labels:
+    app: test-react
+spec:
+  selector:
+    matchLabels:
+      app: test-react
+  endpoints:
+  - port: http
+    path: /metrics
+    interval: 30s
