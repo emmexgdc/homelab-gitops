@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-iuoueywq
+  labels:
+    app: test-iuoueywq
+spec:
+  selector:
+    app: test-iuoueywq
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080

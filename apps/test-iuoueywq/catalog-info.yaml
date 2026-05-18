@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-iuoueywq
+  description: test-iuoueywq service
+  tags:
+    - kubernetes
+    - gitops
+spec:
+  type: service
+  lifecycle: production
+  owner: platform

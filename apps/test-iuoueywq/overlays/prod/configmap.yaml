@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test-iuoueywq-config
+  namespace: test-iuoueywq-prod
+data:
+  PORT: "8080"
+  ENVIRONMENT: "prod"

@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: test-iuoueywq-prod
+
+resources:
+- ../../base
+- configmap.yaml
+- ingress.yaml
+
+patches:
+- patch: |-
+    - op: replace
+      path: /spec/replicas
+      value: 1
+  target:
+    kind: Deployment
+    name: test-iuoueywq
+
+images:
+- name: test-iuoueywq
+  newName: ghcr.io/emmexgdc/test-iuoueywq
+  newTag: latest
+
+labels:
+- pairs:
+    environment: prod
